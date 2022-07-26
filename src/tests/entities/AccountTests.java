@@ -34,4 +34,16 @@ public class AccountTests {
 			acc2.withdraw(amount);
 		});
 	}
+	
+	@Test
+	public void depositShouldDoNothingWhenNegativeAmount() {
+		
+		double amount = -200.0;
+		//double expectedValue = 100.0;
+		Account acc3 = new Account(3L, 100.0);
+		
+		acc3.deposit(amount);
+		
+		Assertions.assertTrue(acc3.getBalance() == 100.0);
+	}
 }

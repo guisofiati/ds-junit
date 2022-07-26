@@ -25,7 +25,7 @@ public class AccountTests {
 	}
 	
 	@Test
-	public void withdrawShouldThrowsIllegalArgumentExceptionWhenAmountIsHigherThanBalance() {
+	public void withdrawShouldThrowsIllegalArgumentExceptionWhenInsufficientBalance() {
 		
 		double amount = 200.0;
 		Account acc2 = AccountFactory.createAccount(100.0);
@@ -59,5 +59,15 @@ public class AccountTests {
 		
 		Assertions.assertEquals(expectedValue, acc4.getBalance());
 		Assertions.assertTrue(result == initialBalance);
+	}
+	
+	@Test
+	public void withdrawShouldDecrementBalanceWhenSufficientBalance() {
+		
+		Account acc5 = AccountFactory.createAccount(600.0);
+		
+		acc5.withdraw(300.0);
+		
+		Assertions.assertEquals(300.0, acc5.getBalance());
 	}
 }

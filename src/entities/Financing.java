@@ -19,7 +19,7 @@ public class Financing {
 	}
 	
 	public double entry() {
-		return totalAmount * 0.2;
+		return totalAmount * FINANCE_ENTRANCE;
 	}
 	
 	public double quota() {
